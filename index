@@ -1,0 +1,780 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+// Created by The Companion RA®/SIR_Master®.
+// Edited by Arkcantos
+Credit goest to:
+Thanks Allah for everything.
+-The Companion RA®/SIR®.
+-Debian (Unix & Linux) who make Raspbian possible with all especially free to use (like all of it) features.
+-Raspberry Pi (All version & it's creator though).
+-Arduino (All version creator though).
+-https://pchelp.ricmedia.com/setup-lamp-server-raspberry-pi-3-complete-diy-guide/3/
+-https://pimylifeup.com/arduino-web-server/
+-https://www.instructables.com/id/Ultimate-Pi-Based-Home-Server/
+-https://www.digikey.com/en/maker/projects/make-your-arduino-a-web-server/a4101e98685b418b87bdf67c59d9f400
+-https://www.w3schools.com
+-https://www.w3docs.com/
+-https://html.com
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+<!-- This part is for the tab config -->
+    <link rel= "icon" href= "Sentry_images/Sentry_Helm_on.ico" sizes="16x16" link />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Sentry, at your command BOS!</title>
+	<link href="html/Designs_things/content_style.css" rel="stylesheet" type="text/css">
+	<script src="html/Javascripts/jquery_3.4.1_library.php"></script>
+	<script src="html/Javascripts/content.js"></script>
+    <style type="text/css" media="screen">
+  * {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  body, html {
+    padding: 3px 3px 3px 3px;
+
+    background-color: #D8DBE2;
+
+    font-family: Verdana, sans-serif;
+    font-size: 11pt;
+    text-align: center;
+  }
+
+  div.main_page {
+    position: relative;
+    display: table;
+	
+    width: 940px;       <!---spacing for side margin--->
+
+    margin-bottom: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 0px 0px 0px;
+
+    border-width: 2px;
+    border-color: #212738;
+    border-style: solid;
+
+    background-color: #FFFFFF;
+
+    text-align: center;
+  }
+
+  div.page_header {
+    height: 99px;
+    width: 100%;
+
+    background-color: #F5F6F7;
+  }
+  
+  div.page_header spon {
+    margin: 15px 0px 0px 25px;
+
+    font-size: 100%;
+    font-weight: bold;
+  }
+  
+  div.page_header span {
+    margin: 15px 0px 0px 50px;
+
+    font-size: 180%;
+    font-weight: bold;
+  }
+
+  div.page_header img {
+    margin: 3px 0px 0px 40px;
+
+    border: 0px 0px 0px;
+  }
+
+  div.table_of_contents {
+    clear: left;
+
+    min-width: 200px;
+
+    margin: 3px 3px 3px 3px;
+
+    background-color: #FFFFFF;
+
+    text-align: left;
+  }
+
+  div.table_of_contents_item {
+    clear: left;
+
+    width: 100%;
+
+    margin: 4px 0px 0px 0px;
+
+    background-color: #FFFFFF;
+
+    color: #000000;
+    text-align: left;
+  }
+
+  div.table_of_contents_item a {
+    margin: 6px 0px 0px 6px;
+  }
+
+  div.content_section {
+    margin: 3px 3px 3px 3px;
+
+    background-color: #FFFFFF;
+
+    text-align: left;
+  }
+
+  div.content_section_text {
+    padding: 4px 8px 4px 8px;
+
+    color: #000000;
+    font-size: 100%;
+  }
+
+  div.content_section_text pre {
+    margin: 8px 0px 8px 0px;
+    padding: 8px 8px 8px 8px;
+
+    border-width: 1px;
+    border-style: dotted;
+    border-color: #000000;
+
+    background-color: #F5F6F7;
+
+    font-style: italic;
+  }
+
+  div.content_section_text p {
+    margin-bottom: 6px;
+  }
+
+  div.content_section_text ul, div.content_section_text li {
+    padding: 4px 8px 4px 16px;
+  }
+
+  div.section_header {
+    padding: 3px 6px 3px 6px;
+
+    background-color: #8E9CB2;
+
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 112%;
+    text-align: center;
+  }
+
+  div.section_header_red {
+    background-color: #FF0000;
+  }
+
+  div.section_header_grey {
+    background-color: #9F9386;
+  }
+
+  .floating_element {
+    position: relative;
+    float: left;
+  }
+
+  div.table_of_contents_item a,
+  div.content_section_text a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  div.table_of_contents_item a:link,
+  div.table_of_contents_item a:visited,
+  div.table_of_contents_item a:active {
+    color: #000000;
+  }
+
+  div.table_of_contents_item a:hover {
+    background-color: #000000;
+
+    color: #FFFFFF;
+  }
+
+  div.content_section_text a:link,
+  div.content_section_text a:visited,
+   div.content_section_text a:active {
+    background-color: #DCDFE6;
+
+    color: #000000;
+  }
+
+  div.content_section_text a:hover {
+    background-color: powderblue;
+
+    color: navy;
+  }
+
+  div.validator {
+  }
+  
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 0.5%;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #D8DBE2;
+  margin: 0.1% auto auto auto; /* 0.1% from the top, auto from the bottom and centered */
+  border: 1px solid #888;
+  width: 95%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 2%;
+  top: -135%;
+  color: #000;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+    </style>
+
+<script>
+// Get the modal
+var modal = document.getElementById('pop_up_iframe_ra_autoronics');
+var modal = document.getElementById('pop_up_iframe_manual');
+var modal = document.getElementById('pop_up_iframe_public_html');
+var modal = document.getElementById('pop_up_iframe_bug_report');
+var modal = document.getElementById('pop_up_iframe_nginxl');
+var modal = document.getElementById('pop_up_iframe_lsws_pd');
+var modal = document.getElementById('pop_up_iframe_lsws_docs');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+	
+  </head>
+  <body>
+<!-- This part is for "main_page config. Use as the header in the page -->
+    <div class="main_page">
+
+      <div class="page_header floating_element">
+	    <p>
+
+		<a onclick="document.getElementById('pop_up_iframe_ra_autoronics').style.display='block'">
+		<img src="Sentry_images\RA_Autoronics.png"  width="300" height="100" alt="BOS Logo" align="left"/>
+		</a>
+
+		<div id="pop_up_iframe_ra_autoronics" class="modal">
+			<form class="modal-content animate" action="/action_page.php">
+				<div class="imgcontainer">
+				<b>RA Autoronics website</b>
+				<span onclick="document.getElementById('pop_up_iframe_ra_autoronics').style.display='none'" class="close">&times;</span>
+				<br>
+				</div>
+			<iframe style="height: 88.5vh;" width="100%" src=""></iframe>
+			<!-- <iframe style="height: 88.5vh;" width="100%" src="https://raautoronics.wixsite.com/home"></iframe> -->
+			</form>
+		</div>
+
+        <a href="Sentry" onclick="location.href='login.php';return false">
+		<img src="Sentry_images\Sentry_Offguard.png" class="login_credidential" width="58" height="100" alt="Sentry Logo" align="right"/> </a>
+		<style>
+		.login_credidential {cursor: default;}
+		</style>
+		</p>
+		<br>
+		<spon class="floating_element">
+		  Building Overseer System
+		</spon>
+		  <br>
+		  <br>
+        <span align="center"; class="floating_element">
+		  "Sentry"
+        </span>
+      </div>
+	  
+<!--      <div class="table_of_contents floating_element">
+        <div class="section_header section_header_grey">
+          TABLE OF CONTENTS
+        </div>
+        <div class="table_of_contents_item floating_element">
+          <a href="#about">About</a>
+        </div>
+        <div class="table_of_contents_item floating_element">
+          <a href="#changes">Changes</a>
+        </div>
+        <div class="table_of_contents_item floating_element">
+          <a href="#scope">Scope</a>
+        </div>
+        <div class="table_of_contents_item floating_element">
+          <a href="#files">Config files</a>
+        </div>
+      </div>
+-->
+      <div class="content_section floating_element">
+<!-- This part is for the line with writting config -->
+        <div class="section_header section_header_red">
+          <div id="about"></div>
+          <b style="width: 100%; color:#0000ff;">It works!</b> <b style="width: 100%; color:Blue;">All system go.</b>
+	    </div>
+
+<!-- This part is for the "button that hide all it's content within" config -->
+<div style="margin-bottom: 2px">
+<input type="button" class="button" value="About" 
+style="width: 100%; font-size: 17px; font-weight: bold; margin: 0px; padding: 0px; background-color: navy; color: white;" 
+onclick="if (this.parentNode.nextSibling.firstChild.style.display != '') { this.parentNode.nextSibling.firstChild.style.display = ''; this.value = 'About'; } 
+else 
+{ parentNode.nextSibling.firstChild.style.display = 'none'; this.value = 'About'; }">
+</div><div class="alt2" style="margin: 0px; padding: 6px; border: 1px inset; border-style: solid; border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px"><div style="display: none;">
+<!-- The content hidden by "button" config-->
+		  <p>
+                <b>BOS Sentry</b> is powered by Apache2 server or Nginx (pronounce as Engine X) or OpenLiteSpeed, installed on Debian(Raspbian) systems.
+                If you can read this page, it means that the Apache HTTP server installed at
+                this site is working properly. <b>This note is located:</b> (located at
+                <tt>/var/www/html/Sentry_sample.html - or index.php or just anything might be change without notice</tt>) to operate your HTTP server.
+          </p>
+<br>
+          <p>
+                Welcome to the html of <b>Sentry</b>. For more info, can aquired at below.
+				For further information, kindly contact (or click on) 
+		<a onclick="document.getElementById('pop_up_iframe_ra_autoronics').style.display='block'">
+		<b title="Visit our site" style="cursor: pointer; background-color: powderblue;">RA Autoronics®</b>
+		</a>
+
+		<div id="pop_up_iframe_ra_autoronics" class="modal">
+			<form class="modal-content animate" action="/action_page.php">
+				<div class="imgcontainer">
+				<b>RA Autoronics website</b>
+				<span onclick="document.getElementById('pop_up_iframe_ra_autoronics').style.display='none'" class="close">&times;</span>
+				<br>
+				</div>
+			<!-- <iframe style="height: 88.5vh;" width="100%" src=" https://raautoronics.wixsite.com/home"></iframe> -->
+		</form>
+		</div>
+				Alternatively, can click on the "Logo" on top left conner.
+				
+          </p>
+<br>
+          <p>
+                If you are a normal user of this web site and don't know what this page is
+                about, this probably means that the site is currently unavailable due to
+                maintenance.
+                If the problem persists, please contact the site's administrator.
+          </p>
+</div>
+</div>
+<!-- This part end's the "button" config -->
+
+        <div class="content_section_text">
+
+        </div>
+		
+
+<div style="margin-bottom: 2px">
+<input type="button" class="button" value="Configuration Overveiw" 
+style="width: 100%; font-size: 18px; font-weight: bold; margin: 0px; padding: 0px; background-color: #8E9CB2; color: white;" 
+onclick="if (this.parentNode.nextSibling.firstChild.style.display != '') { this.parentNode.nextSibling.firstChild.style.display = ''; this.value = 'Configuration Overveiw'; } 
+else 
+{ parentNode.nextSibling.firstChild.style.display = 'none'; this.value = 'Configuration Overveiw'; }">
+</div><div class="alt2" style="margin: 0px; padding: 6px; border: 1px inset; border-style: solid; border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px"><div style="display: none;">
+
+        <div class="content_section_text">
+          <p>
+                Debian's Apache2 default configuration is different from the
+                upstream default configuration, and split into several files optimized for
+                interaction with Debian tools. The configuration system is
+                <b>fully documented in
+                /usr/share/doc/apache2/README.Debian.gz</b>. Refer to this for the full
+                documentation. Documentation for the web server itself can be
+                found by accessing the 
+				<a onclick="document.getElementById('pop_up_iframe_manual').style.display='block'">
+					<b title="Read manual here" style="cursor: pointer; background-color: powderblue;">manual</b>
+				</a>
+
+				<div id="pop_up_iframe_manual" class="modal">
+					<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+					<b>Apache manual (If no display, it's not running on apache server)</b>
+					<span onclick="document.getElementById('pop_up_iframe_manual').style.display='none'" class="close">&times;</span>
+					<br>
+					</div>
+					<iframe style="height: 88.5vh;" width="100%" src="127.0.0.1/manual"></iframe>
+					</form>
+				</div>
+				if the <tt>apache2-doc</tt>
+                package was installed on this server.
+				If it was Nginx (pronounce as Engine X) or OpenLiteSpeed then there might be some differents.
+
+          </p>
+		  <p>
+
+		  </p>
+          <p>
+                The configuration layout for an Apache2 web server installation on Debian systems is as follows:
+          </p>
+          <pre>
+/etc/apache2/
+|-- apache2.conf
+|       `--  ports.conf
+|-- mods-enabled
+|       |-- *.load
+|       `-- *.conf
+|-- conf-enabled
+|       `-- *.conf
+|-- sites-enabled
+|       `-- *.conf
+          </pre>
+          <ul>
+                        <li>
+                           <tt>apache2.conf</tt> is the main configuration
+                           file. It puts the pieces together by including all remaining configuration
+                           files when starting up the web server.
+                        </li>
+
+                        <li>
+                           <tt>ports.conf</tt> is always included from the
+                           main configuration file. It is used to determine the listening ports for
+                           incoming connections, and this file can be customized anytime.
+                        </li>
+
+                        <li>
+                           Configuration files in the <tt>mods-enabled/</tt>,
+                           <tt>conf-enabled/</tt> and <tt>sites-enabled/</tt> directories contain
+                           particular configuration snippets which manage modules, global configuration
+                           fragments, or virtual host configurations, respectively.
+                        </li>
+
+                        <li>
+                           They are activated by symlinking available
+                           configuration files from their respective
+                           *-available/ counterparts. These should be managed
+                           by using our helpers
+                           <tt>
+                                a2enmod,
+                                a2dismod,
+                           </tt>
+                           <tt>
+                                a2ensite,
+                                a2dissite,
+                            </tt>
+                                and
+                           <tt>
+                                a2enconf,
+                                a2disconf
+                           </tt>. See their respective main pages for detailed information.
+                        </li>
+
+                        <li>
+                           The binary is called apache2. Due to the use of
+                           environment variables, in the default configuration, apache2 needs to be
+                           started/stopped with <tt>/etc/init.d/apache2</tt> or <tt>apache2ctl</tt>.
+                           <b>Calling <tt>/usr/bin/apache2</tt> directly will not work</b> with the
+                           default configuration.
+                        </li>
+						
+						<li>
+                              Note that <b>RA Autoronics will not take any responsible</b> for any action
+                              is done including any form of modification without notification or permission.
+                              Failing to abide may result of void on ownership of product as it will be classified as; 
+							  <br>
+							  <b>Curruption or defile one's product on purpose for  sabotage / personal interest.</b>	
+                              <br>
+                              However if really need to mod by any reason, freely consult RA Autoronics						  
+                        </li>
+          </ul>
+        </div>
+		</div>
+		</div>
+
+<div style="margin-bottom: 2px">
+<input type="button" class="button" value="Documents Roots" 
+style="width: 100%; font-size: 18px; font-weight: bold; margin: 0px; padding: 0px; background-color: #8E9CB2; color: white;" 
+onclick="if (this.parentNode.nextSibling.firstChild.style.display != '') { this.parentNode.nextSibling.firstChild.style.display = ''; this.value = 'Documents Roots'; } 
+else 
+{ parentNode.nextSibling.firstChild.style.display = 'none'; this.value = 'Documents Roots'; }">
+</div><div class="alt2" style="margin: 0px; padding: 6px; border: 1px inset; border-style: solid; border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px"><div style="display: none;">
+            <div class="content_section_text">
+			<p>
+                By default, Debian does not allow access through the web browser to
+                <em>any</em> file apart of those located in <tt>/var/www</tt>,
+				<a onclick="document.getElementById('pop_up_iframe_public_html').style.display='block'">
+					<b title="More info here" style="cursor: pointer; background-color: powderblue;">public_html</b>
+				</a>
+
+				<div id="pop_up_iframe_public_html" class="modal">
+					<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+					<b>Debian default on webserver</b>
+					<span onclick="document.getElementById('pop_up_iframe_public_html').style.display='none'" class="close">&times;</span>
+					<br>
+					</div>
+					<iframe style="height: 88.5vh;" width="100%" src="http://httpd.apache.org/docs/2.4/mod/mod_userdir.html"></iframe>
+					</form>
+				</div>
+                directories (when enabled) and <tt>/usr/share</tt> (for web
+                applications). If your site is using a web document root
+                located elsewhere (such as in <tt>/srv</tt>) you may need to whitelist your
+                document root directory in <tt>/etc/apache2/apache2.conf</tt>.
+            </p>
+            <p>
+                The default Debian document root is <tt>/var/www/html</tt>. You
+                can make your own virtual hosts under /var/www. This is different
+                to previous releases which provides better security out of the box.
+            </p>
+			<svg width="80%" height="20%">
+			<text x=40% y=20% font-size=16pt fill=cyan stroke=black stroke-width=1.00>
+			Powered by RA Autoronics
+			</text>
+			</svg>
+        </div>
+		</div>
+		</div>
+
+        <div class="section_header">
+          <div id="bugs"></div>
+                Reporting Problems
+        </div>
+        <div class="content_section_text">
+          <p>
+                Please use the <tt>reportbug</tt> tool to report bugs in the
+                Apache2 package with Debian. However, check 
+				<a onclick="document.getElementById('pop_up_iframe_bug_report').style.display='block'">
+					<b title="More info here" style="cursor: pointer; background-color: powderblue;">existing bug reports</b>
+				</a>
+				before reporting a new bug.
+				<div id="pop_up_iframe_bug_report" class="modal">
+					<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+					<b>Bugs report on Debian</b>
+					<span onclick="document.getElementById('pop_up_iframe_bug_report').style.display='none'" class="close">&times;</span>
+					<br>
+					</div>
+					<iframe style="height: 88.5vh;" width="100%" src="http://bugs.debian.org/cgi-bin/pkgreport.cgi?ordering=normal;archive=0;src=apache2;repeatmerged=0"></iframe>
+					</form>
+				</div>				
+
+				If it was Nginx (pronounce as Engine X) then documentation can be refered here 
+				<a onclick="document.getElementById('pop_up_iframe_nginx').style.display='block'">
+					<b title="More info here" style="cursor: pointer; background-color: powderblue;">nginx.org</b>
+				</a>
+				for more info.
+				<div id="pop_up_iframe_nginx" class="modal">
+					<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+					<b>Nginx official site</b>
+					<span onclick="document.getElementById('pop_up_iframe_nginx').style.display='none'" class="close">&times;</span>
+					<br>
+					</div>
+					<iframe style="height: 88.5vh;" width="100%" src="http://nginx.org/"></iframe>
+					</form>
+				</div>	
+				<br>
+				On the other hand if it was OpenLiteSpeed, can refer here
+				<a onclick="document.getElementById('pop_up_iframe_ols').style.display='block'">
+					<b title="More info here" style="cursor: pointer; background-color: powderblue;">openlitespeed.org</b>
+				</a>
+				for more info.
+				<div id="pop_up_iframe_ols" class="modal">
+					<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+					<b>OpenLiteSpeed official site</b>
+					<span onclick="document.getElementById('pop_up_iframe_ols').style.display='none'" class="close">&times;</span>
+					<br>
+					</div>
+					<iframe style="height: 88.5vh;" width="100%" src="https://openlitespeed.org/kb/"></iframe>
+					</form>
+				</div>
+				<br>				
+				If the original LiteSpeedWebServer(LSWS) then
+				<a onclick="document.getElementById('pop_up_iframe_lsws_pd').style.display='block'">
+					<b title="More info here" style="cursor: pointer; background-color: powderblue;">LSWS Product Documentation</b>
+				</a>
+				<div id="pop_up_iframe_lsws_pd" class="modal">
+					<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+					<b>LSWS product docs</b>
+					<span onclick="document.getElementById('pop_up_iframe_lsws_pd').style.display='none'" class="close">&times;</span>
+					<br>
+					</div>
+					<iframe style="height: 88.5vh;" width="100%" src="https://www.litespeedtech.com/docs"></iframe>
+					</form>
+				</div>
+				or 
+				<a onclick="document.getElementById('pop_up_iframe_lsws_docs').style.display='block'">
+					<b title="More info here" style="cursor: pointer; background-color: powderblue;">LSWS Documentation</b>
+				</a>
+				<div id="pop_up_iframe_lsws_docs" class="modal">
+					<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+					<b>LSWS documentations</b>
+					<span onclick="document.getElementById('pop_up_iframe_lsws_docs').style.display='none'" class="close">&times;</span>
+					<br>
+					</div>
+					<iframe style="height: 88.5vh;" width="100%" src="https://docs.litespeedtech.com/"></iframe>
+					</form>
+				</div>
+				to litespeedtech.com respectively.
+          </p>
+          <p>
+                Please report bugs specific to modules (such as PHP and others)
+                to respective packages, not to the web server itself.
+          </p>
+		  <p>
+                As if it's about BOS Sentry problem, kindly seek for 
+			<a onclick="document.getElementById('pop_up_iframe_ra_autoronics').style.display='block'">
+			<b title="Visit our site" style="cursor: pointer; background-color: powderblue;">RA Autoronics®</b>
+			</a>
+				for solution.
+			<div id="pop_up_iframe_ra_autoronics" class="modal">
+				<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+					<b>RA Autoronics website</b>
+					<span onclick="document.getElementById('pop_up_iframe_ra_autoronics').style.display='none'" class="close">&times;</span>
+					<br>
+					</div>
+				<!-- <iframe style="height: 88.5vh;" width="100%" src="https://raautoronics.wixsite.com/home"></iframe> --> 
+				</form>
+			</div>			
+          </p>
+        </div>
+
+
+
+
+      </div>
+	  
+<!-- This is where to create a screen (The "iframe" is used to open a web page inside of a web page.)
+Syantax:
+<iframe src="URL"></iframe>
+This is last / lazy method
+-->
+
+<!-- Lazy webcam solution
+	  <h1>HTML Iframes</h2>
+<p>
+<iframe src="https://webcamtests.com/" allow="microphone; camera" height="400" width="700"></iframe>
+</p>
+!-->
+
+<!-- Some old form
+<p>
+<div id="login">
+<form action="" method="post">
+ <fieldset>
+  <legend>Personale login:</legend>
+  <br>
+  <label for="user"><b>Username:</b></label> 
+  <input type="text" placeholder="Input Username" name="user" required> 
+  <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>
+  <br>
+  <label for="pswd"><b>Password:</b></label> 
+  <input type="password" placeholder="Input Password" name="pswd" required> 
+  <button type="submit" style="width: 13.2%">Login</button> <!-- could also use 122px-->
+  <span><?php echo $error; ?></span>
+  <br> 
+  <br>
+ </fieldset>
+</form>
+<br>
+      <style>
+         .login_button {
+         background-color: blue;
+         border: none;
+         color: white;
+         padding: 2.5% 25%;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 20px;
+         margin: 1% 1%;
+         cursor: pointer;
+		 }
+		 .login_button:hover {
+		 color: red;
+		 }
+      </style>
+<br>
+<br>
+<a href="login_user.php" class="login_button">Click here to login into system</a>
+<br>
+<br>
+<!--
+The target attribute can have one of the following values:
+
+_blank - Opens the linked document in a new window or tab
+_self - Opens the linked document in the same window/tab as it was clicked (this is default)
+_parent - Opens the linked document in the parent frame
+_top - Opens the linked document in the full body of the window
+framename - Opens the linked document in a named frame
+-->
+
+</div>
+<br>
+</p>
+
+    </div>
+    <div class="validator">
+    </div>
+<p>
+<p><b> JavaScript Date & Time (Server's time) </b></p>
+
+<p id="Time_date"></p>
+
+<script>
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+var d = new Date();
+document.getElementById("Time_date").innerHTML = d;
+}
+</script>
+</p>
+
+  </body>
+</html>
+
